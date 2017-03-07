@@ -1,14 +1,6 @@
 <?php
 include("config.php");
 $result=mysqli_query($db,"select * from admin_account");
-   echo "<tr>";  
-    echo "<td >username</td>";
-    echo "<td>Password</td>";
-    echo "<td >Id</td>";
-    echo "<td >Status</td>";
-    echo "<td >Edit</td>";
-    echo "<td >Delete</td>";
-    echo "</tr>";
  while($row = mysqli_fetch_array($result))
                  { 
                   $id=$row['id']; 
@@ -23,4 +15,5 @@ $result=mysqli_query($db,"select * from admin_account");
 }
 
 ?>
+
 
