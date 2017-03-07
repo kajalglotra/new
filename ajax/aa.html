@@ -1,0 +1,38 @@
+$('.content').html("<tr class='info'><td><?php echo $row['ques']; ?></td><td><?php if($row['status']==1)echo'Active'; else echo'Deactive'; ?></td><td><?php echo $row['time1'];  ?></td><td><?php echo $row['time2'];  ?></td><td><a href=&quot;edit_poll.php?id=<?php echo $row['id']?>&quot;><img src='b_edit.png' alt='' /></a></td><td><a  class='delete' id='<?php echo $row['id'];?>'><img src='b_drop.png' alt='' /></a></td></tr>");
+
+
+<table class="table table-bordered">
+                <tr class="danger">
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>Id</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <?php
+	          while($row = mysqli_fetch_array($result))
+                 { 
+                  $id=$row['id'];
+	        ?>
+                        <tr class="info">
+                            <td>
+                                <?php echo $row['username']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['password']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['id']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['active']; ?>
+                            </td>
+                            <td><a href=edit.php?id=<?php echo $id;?>><img src="b_edit.png" alt="" /></a></td>
+                            <td>
+                                <a href="?action=delete&id=<?php echo $id;?>"><img src="b_drop.png" alt="" /></a>
+                            </td>
+                        </tr>
+                        <?php }?>
+                
+            </table>
