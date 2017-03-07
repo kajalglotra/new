@@ -58,16 +58,18 @@ $result=mysqli_query($db,"select * from admin_account");
     <script>
     function explode(){
             var response = '';
-            
+        
             $.ajax({
                 type: "GET",
                 url: "display.php",
                 async: false,
-                 
+                  complete: function(){
+                    $('#loadingDiv').hide();
+                    },
                 success: function(text) {
                     response = text;
                     $("#content").html(response);
-                    $("#loadingDiv").hide();
+
                 },
                 
                  
@@ -84,5 +86,4 @@ $result=mysqli_query($db,"select * from admin_account");
 
     setInterval(explode, 5000);
     </script>
-
-    </html>
+</html>
